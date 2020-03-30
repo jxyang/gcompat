@@ -7,7 +7,7 @@
 :Status:
  Production
 :Copyright:
- © 2019 Adélie Linux and contributors.  MIT open source license.
+ © 2020 Adélie Linux and contributors.  NCSA open source license.
 
  
 .. image:: https://img.shields.io/badge/chat-on%20IRC-blue.svg
@@ -50,7 +50,7 @@ to use musl and automatically preloading the gcompat library.
 
 
 .. _fts: https://github.com/pullmoll/musl-fts/
-.. _libucontext: https://code.foxkit.us/adelie/libucontext/
+.. _libucontext: https://github.com/kaniini/libucontext/
 .. _obstack: https://github.com/pullmoll/musl-obstack/
 
 
@@ -165,8 +165,9 @@ For example, on an x86_64 musl host and x86_64 glibc target, you may run:
 
     $ make LINKER_PATH=/lib/ld-musl-x86_64.so.1 LOADER_NAME=ld-linux-x86-64.so.2 install
 
-Please note that unlike libucontext, the gcompat build system does *not*
-attempt to guess the correct values for you.  This feature may be added later.
+Please note that the gcompat build system does *not* attempt to guess the
+correct values for you; specifying at least ``LINKER_PATH`` and
+``LOADER_NAME`` are required.
 
 
 
