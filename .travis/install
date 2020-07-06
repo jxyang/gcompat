@@ -2,7 +2,7 @@
 
 . $(dirname $0)/config
 
-curl -O https://distfiles.adelielinux.org/adelie/apk-tools-static/x86_64.apk
+curl -o x86_64.apk https://distfiles.adelielinux.org/adelie/1.0/system/x86_64/apk-tools-static-2.10.4-r0.apk
 tar -xzOf x86_64.apk sbin/apk.static > /tmp/apk.static
 chmod a+x /tmp/apk.static
 
