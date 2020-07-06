@@ -8,8 +8,13 @@
   © 2016-2019 Adélie Linux and contributors.  NCSA open source licence.
 
 
-1.0.0 (20??-??-??)
+0.9.0 (2020-07-??)
 ==================
+
+unistd
+------
+
+* Add execv/execve/execvp family of functions to catch exec of /proc/self/exe.
 
 wchar
 -----
