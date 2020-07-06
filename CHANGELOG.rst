@@ -16,8 +16,15 @@ locale
 
 * New module.
 
-* Adds newlocale and freelocale, which provide a glibc-compatible locale_t ABI.
+* Add newlocale and freelocale, which provide a glibc-compatible locale_t ABI.
   This is necessary for software using the libstdc++ <locale>/<ctype> modules.
+
+time
+----
+
+* New module.
+
+* Add __strftime_l.
 
 unistd
 ------

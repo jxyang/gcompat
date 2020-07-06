@@ -29,6 +29,7 @@ LIBGCOMPAT_SRC = \
 	libgcompat/string.c		\
 	libgcompat/sysctl.c		\
 	libgcompat/syslog.c		\
+	libgcompat/time.c		\
 	libgcompat/ucontext.c		\
 	libgcompat/unistd.c		\
 	libgcompat/utmp.c		\
