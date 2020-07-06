@@ -28,7 +28,7 @@ static void create_key(void)
 {
 	int res = pthread_key_create(&key, run_dtors);
 
-	GCOMPAT__assert_with_reason(res, "No key for thread_atexit list");
+	GCOMPAT__assert_with_reason(!res, "No key for thread_atexit list: %d\n", res);
 }
 
 /**
