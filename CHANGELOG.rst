@@ -8,7 +8,7 @@
   © 2016-2019 Adélie Linux and contributors.  NCSA open source licence.
 
 
-0.9.0 (2020-07-??)
+0.9.0 (2020-07-06)
 ==================
 
 locale
