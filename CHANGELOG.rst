@@ -11,6 +11,14 @@
 0.9.0 (2020-07-??)
 ==================
 
+locale
+------
+
+* New module.
+
+* Adds newlocale and freelocale, which provide a glibc-compatible locale_t ABI.
+  This is necessary for software using the libstdc++ <locale>/<ctype> modules.
+
 unistd
 ------
 
