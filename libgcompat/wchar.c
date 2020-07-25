@@ -103,3 +103,14 @@ long int __wcstol_internal(const wchar_t *nptr, wchar_t **endptr, int base,
 	assert(group == 0);
 	return wcstol(nptr, endptr, base);
 }
+
+/**
+ * Convert a wide-character string to an unsigned long int.
+ *
+ * Some day, when musl supports LC_NUMERIC, we can probably remove this.
+ */
+unsigned long int wcstoul_l(const wchar_t *nptr, wchar_t **endptr,
+                            int base, locale_t loc)
+{
+	return wcstoul(nptr, endptr, base);
+}
