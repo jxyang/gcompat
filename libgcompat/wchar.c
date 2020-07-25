@@ -125,3 +125,13 @@ long int wcstol_l(const wchar_t *nptr, wchar_t **endptr, int base,
 {
 	return wcstol(nptr, endptr, base);
 }
+
+/**
+ * Convert a wide-character string to a double.
+ *
+ * Some day, when musl supports LC_NUMERIC, we can probably remove this.
+ */
+double wcstod_l(const wchar_t *nptr, wchar_t **endptr, locale_t loc)
+{
+	return wcstod(nptr, endptr);
+}
