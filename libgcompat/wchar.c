@@ -9,6 +9,19 @@ int __vswprintf_chk(wchar_t *s, size_t n, int flag, size_t slen,
 /**
  * Convert formatted wide-character output, with stack checking
  *
+ * LSB 5.0: LSB-Core-generic/baselib---vfwprintf-chk-1.html
+ */
+int __vfwprintf_chk(FILE *fp, int flag, const wchar_t *format, va_list ap)
+{
+	assert(fp != NULL);
+	assert(format != NULL);
+
+	return vfwprintf(fp, format, ap);
+}
+
+/**
+ * Convert formatted wide-character output, with stack checking
+ *
  * LSB 5.0: LSB-Core-generic/baselib---swprintf-chk-1.html
  */
 int __swprintf_chk(wchar_t *s, size_t n, int flag, size_t slen,
