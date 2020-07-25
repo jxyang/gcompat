@@ -5,6 +5,24 @@
 
 int __vswprintf_chk(wchar_t *s, size_t n, int flag, size_t slen,
                     const wchar_t *format, va_list ap);
+int __vfwprintf_chk(FILE *fp, int flag, const wchar_t *format, va_list ap);
+
+/**
+ * Convert formatted wide-character output, with stack checking
+ *
+ * LSB 5.0: LSB-Core-generic/baselib---fwprintf-chk-1.html
+ */
+int __fwprintf_chk(FILE *stream, int flag, const wchar_t *format, ...)
+{
+	int ret;
+	va_list ap;
+
+	va_start(ap, format);
+	ret = __vfwprintf_chk(stream, flag, format, ap);
+	va_end(ap);
+
+	return ret;
+}
 
 /**
  * Convert formatted wide-character output, with stack checking
