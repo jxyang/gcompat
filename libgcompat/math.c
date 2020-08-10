@@ -177,9 +177,9 @@ weak_alias(__isnanl, isnanl);
 		"infinite value returned in a function that returns a "	\
 		"finite result");
 
-#define ASSERT_FINITEF(res) _ASSERT_FINITE(isinff, res)
-#define ASSERT_FINITE(res) _ASSERT_FINITE(isinf, res)
-#define ASSERT_FINITEL(res) _ASSERT_FINITE(isinfl, res)
+#define ASSERT_FINITEF(res) _ASSERT_FINITE(finitef, res)
+#define ASSERT_FINITE(res) _ASSERT_FINITE(finite, res)
+#define ASSERT_FINITEL(res) _ASSERT_FINITE(finitel, res)
 
 /**
  * Returns the principal value of the arc cosine of x, expressed in radians.
