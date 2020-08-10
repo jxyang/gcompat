@@ -5,6 +5,37 @@
 
 int __vswprintf_chk(wchar_t *s, size_t n, int flag, size_t slen,
                     const wchar_t *format, va_list ap);
+int __vfwprintf_chk(FILE *fp, int flag, const wchar_t *format, va_list ap);
+
+/**
+ * Convert formatted wide-character output, with stack checking
+ *
+ * LSB 5.0: LSB-Core-generic/baselib---fwprintf-chk-1.html
+ */
+int __fwprintf_chk(FILE *stream, int flag, const wchar_t *format, ...)
+{
+	int ret;
+	va_list ap;
+
+	va_start(ap, format);
+	ret = __vfwprintf_chk(stream, flag, format, ap);
+	va_end(ap);
+
+	return ret;
+}
+
+/**
+ * Convert formatted wide-character output, with stack checking
+ *
+ * LSB 5.0: LSB-Core-generic/baselib---vfwprintf-chk-1.html
+ */
+int __vfwprintf_chk(FILE *fp, int flag, const wchar_t *format, va_list ap)
+{
+	assert(fp != NULL);
+	assert(format != NULL);
+
+	return vfwprintf(fp, format, ap);
+}
 
 /**
  * Convert formatted wide-character output, with stack checking
@@ -71,4 +102,36 @@ long int __wcstol_internal(const wchar_t *nptr, wchar_t **endptr, int base,
 {
 	assert(group == 0);
 	return wcstol(nptr, endptr, base);
+}
+
+/**
+ * Convert a wide-character string to an unsigned long int.
+ *
+ * Some day, when musl supports LC_NUMERIC, we can probably remove this.
+ */
+unsigned long int wcstoul_l(const wchar_t *nptr, wchar_t **endptr,
+                            int base, locale_t loc)
+{
+	return wcstoul(nptr, endptr, base);
+}
+
+/**
+ * Convert a wide-character string to a long int.
+ *
+ * Some day, when musl supports LC_NUMERIC, we can probably remove this.
+ */
+long int wcstol_l(const wchar_t *nptr, wchar_t **endptr, int base,
+                  locale_t loc)
+{
+	return wcstol(nptr, endptr, base);
+}
+
+/**
+ * Convert a wide-character string to a double.
+ *
+ * Some day, when musl supports LC_NUMERIC, we can probably remove this.
+ */
+double wcstod_l(const wchar_t *nptr, wchar_t **endptr, locale_t loc)
+{
+	return wcstod(nptr, endptr);
 }
