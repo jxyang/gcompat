@@ -49,7 +49,7 @@ ssize_t __recvfrom_chk(int fd, void *buf, size_t len, size_t buflen, int flags,
  */
 int __poll_chk(struct pollfd *fds, nfds_t nfds, int timeout, size_t fdslen)
 {
-	assert((fdslen / sizeof(*fds)) < nfds);
+	assert((fdslen / sizeof(*fds)) >= nfds);
 
 	return poll(fds, nfds, timeout);
 }
