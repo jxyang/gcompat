@@ -8,6 +8,15 @@
   © 2016-2019 Adélie Linux and contributors.  NCSA open source licence.
 
 
+0.9.1 (2020-08-??)
+==================
+
+pthread
+-------
+
+* Add pthread_yield from Hal G.
+
+
 0.9.0 (2020-07-06)
 ==================
 

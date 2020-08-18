@@ -2,6 +2,7 @@
 #include <errno.h>   /* errno */
 #include <fcntl.h>   /* O_CLOEXEC, O_RDONLY */
 #include <pthread.h> /* pthread_atfork */
+#include <sched.h>   /* sched_yield */
 #include <unistd.h>  /* open, read */
 
 #include "alias.h" /* weak_alias */
@@ -51,4 +52,12 @@ int pthread_getname_np(pthread_t thread, char *name, size_t len)
 	name[n - 1] = '\0';
 
 	return 0;
+}
+
+/**
+ * Yield this thread.
+ */
+int pthread_yield(void)
+{
+	return sched_yield();
 }
