@@ -50,7 +50,7 @@ ssize_t readlink(const char *path, char *buf, size_t len)
 				/* Skip the --argv0/--preload ldso args.
 				 * This number must be kept in sync with the
 				 * argument order in loader/loader.c */
-				while (arg < 5) {
+				while (arg < 6) {
 					if (read(fd, &c, 1) != 1) {
 						goto fail_close;
 					}
