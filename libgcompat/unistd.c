@@ -210,14 +210,15 @@ int execve(const char *pathname, char *const argv[], char *const envp[]) {
 			return -1;
 		}
 
-		new_argv = calloc(argc + 6, sizeof(char *));
+		new_argv = calloc(argc + 7, sizeof(char *));
 		new_argv[0] = LOADER;
 		new_argv[1] = "--argv0";
 		new_argv[2] = argv[0];
 		new_argv[3] = "--preload";
 		new_argv[4] = "/lib/libgcompat.so.0";
-		new_argv[5] = target;
-		for(int j = 1, i = 6; j < argc; ++i, ++j) {
+		new_argv[5] = "--";
+		new_argv[6] = target;
+		for(int j = 1, i = 7; j < argc; ++i, ++j) {
 			new_argv[i] = argv[j];
 		}
 		return execve(LINKER, new_argv, envp);
