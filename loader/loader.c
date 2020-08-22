@@ -48,6 +48,7 @@ void usage(void)
  *         "foo",
  *         "--preload",
  *         "/path/to/libgcompat.so /another/preload.so",
+ *         "--",
  *         "/path/to/foo",
  *         "bar",
  *         "baz"
@@ -78,10 +79,13 @@ void usage(void)
  * to the program. An intercepted readlink("/proc/self/exe") must read it from
  * /proc/self/cmdline. Thus, if its position in new_argv changes, that function
  * must also be updated to match.
+ *
+ * NOTE: We have to use 7 arguments to ensure alignment is correct on AArch64,
+ * so we add an additional --, leaving the 8th argument as the binary name.
  */
 int main(int argc, char *argv[], char *envp[])
 {
-	char **new_argv = calloc(argc + 6, sizeof(char *));
+	char **new_argv = calloc(argc + 7, sizeof(char *));
 	char preload[PATH_MAX] = "";
 	char target[PATH_MAX] = "";
 	ssize_t i, j, len;
@@ -113,8 +117,9 @@ int main(int argc, char *argv[], char *envp[])
 	new_argv[2] = argv[0];
 	new_argv[3] = "--preload";
 	new_argv[4] = preload;
-	new_argv[5] = target;
-	for (i = 6, j = 1; j < argc; ++i, ++j) {
+	new_argv[5] = "--";
+	new_argv[6] = target;
+	for (i = 7, j = 1; j < argc; ++i, ++j) {
 		new_argv[i] = argv[j];
 	}
 
