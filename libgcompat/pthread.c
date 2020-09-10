@@ -2,7 +2,7 @@
 #include <errno.h>   /* errno */
 #include <fcntl.h>   /* O_CLOEXEC, O_RDONLY */
 #include <pthread.h> /* pthread_atfork */
-#include <sched.h>   /* sched_yield */
+#include <sched.h>   /* sched_yield, CPU_ALLOC, CPU_FREE */
 #include <unistd.h>  /* open, read */
 
 #include "alias.h" /* weak_alias */
@@ -60,4 +60,20 @@ int pthread_getname_np(pthread_t thread, char *name, size_t len)
 int pthread_yield(void)
 {
 	return sched_yield();
+}
+
+/**
+ * Allocate a large enough CPU set
+ */
+cpu_set_t *__sched_cpualloc(size_t _count)
+{
+	return CPU_ALLOC(__count);
+}
+
+/**
+ * Free a CPU set allocated by __sched_cpualloc
+ */
+void __sched_cpufree(cpu_set_t *__set)
+{
+	return CPU_FREE(__set);
 }
