@@ -65,7 +65,7 @@ int pthread_yield(void)
 /**
  * Allocate a large enough CPU set
  */
-cpu_set_t *__sched_cpualloc(size_t _count)
+cpu_set_t *__sched_cpualloc(size_t __count)
 {
 	return CPU_ALLOC(__count);
 }
