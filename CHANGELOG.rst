@@ -5,16 +5,53 @@
   * **A. Wilcox**, documentation writer
   * **Contributors**, code
 :Copyright:
-  © 2016-2019 Adélie Linux and contributors.  NCSA open source licence.
+  © 2016-2020 Adélie Software and contributors.  NCSA open source license.
 
 
-0.9.1 (2020-08-??)
+1.0.0 (2020-09-27)
 ==================
+
+loader
+------
+
+* Fix crash on AArch64, courtesy of Ariadne Conill.
+
+math
+----
+
+* Fix __*_finite math functions, courtesy of George Matsumura.
 
 pthread
 -------
 
 * Add pthread_yield from Hal G.
+
+* Add __sched_cpualloc and __sched_cpufree from Érico Nogueira.
+
+readlink, unistd
+----------------
+
+* Update for AArch64 fix.
+
+socket
+------
+
+* Fix inverted logic in __poll_chk.
+
+wchar
+-----
+
+* Add the following functions from Michal Kazior:
+
+  * __fwprintf_chk
+
+  * __vfwprintf_chk
+
+  * wcstod_l
+
+  * wcstol_l
+
+  * wcstoul_l
 
 
 0.9.0 (2020-07-06)

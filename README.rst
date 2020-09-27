@@ -3,11 +3,12 @@
 ====================
 :Authors:
  * **A. Wilcox**, initial concept, maintainer, lead developer
- * **Adélie Linux and its contributors**, development
+ * **Adélie Software and its contributors**, development
 :Status:
  Production
 :Copyright:
- © 2020 Adélie Linux and contributors.  NCSA open source license.
+ © 2020 Adélie Software in the Public Benefit, Inc. and its contributors.
+ NCSA open source license.
 
  
 .. image:: https://img.shields.io/badge/chat-on%20IRC-blue.svg
