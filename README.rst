@@ -26,7 +26,7 @@
 .. image:: https://repology.org/badge/vertical-allrepos/gcompat.svg
    :target: https://repology.org/project/gcompat/versions
 
-.. image:: https://travis-ci.org/AdelieLinux/gcompat.svg?branch=master
+.. image:: https://travis-ci.org/AdelieLinux/gcompat.svg?branch=current
    :target: https://travis-ci.org/AdelieLinux/gcompat
 
 
@@ -63,7 +63,7 @@ This library is provided under the NCSA open source license.
 Changes
 ```````
 Any changes to this repository must be reviewed before being pushed to the
-master branch.  There are no exceptions to this rule.  For security-sensitive
+current branch.  There are no exceptions to this rule.  For security-sensitive
 updates, contact the Security Team at sec-bugs@adelielinux.org.
 
 
