@@ -26,7 +26,7 @@
 .. image:: https://repology.org/badge/vertical-allrepos/gcompat.svg
    :target: https://repology.org/project/gcompat/versions
 
-.. image:: https://travis-ci.org/AdelieLinux/gcompat.svg?branch=master
+.. image:: https://travis-ci.org/AdelieLinux/gcompat.svg?branch=stable-1.x
    :target: https://travis-ci.org/AdelieLinux/gcompat
 
 
@@ -35,6 +35,8 @@ Introduction
 
 This distribution contains the implementation of **gcompat**, a library which
 provides glibc-compatible APIs for use on musl libc systems.
+
+This is a stable branch of **gcompat**, intended for production workloads.
 
 This library is designed to be used for binaries that are already compiled
 against glibc.  It does not contain any headers, and cannot be used to build
@@ -58,13 +60,6 @@ to use musl and automatically preloading the gcompat library.
 License
 ```````
 This library is provided under the NCSA open source license.
-
-
-Changes
-```````
-Any changes to this repository must be reviewed before being pushed to the
-master branch.  There are no exceptions to this rule.  For security-sensitive
-updates, contact the Security Team at sec-bugs@adelielinux.org.
 
 
 
