@@ -15,7 +15,7 @@ struct glibc_locale {
 	const int *__ctype_tolower;
 	const int *__ctype_toupper;
 
-	const char *__names[13];
+	char *__names[13];
 };
 
 const unsigned short **__ctype_b_loc(void);
@@ -23,9 +23,10 @@ const int32_t **__ctype_tolower_loc(void);
 const int32_t **__ctype_toupper_loc(void);
 
 const char *__gcompat_valid_locales[] = {"C", "POSIX"};
+#define valid_locale_count sizeof __gcompat_valid_locales / sizeof *__gcompat_valid_locales
 
 bool _is_valid_locale(const char *candidate) {
-	for(int i = 0; i < sizeof __gcompat_valid_locales; i++) {
+	for(size_t i = 0; i < valid_locale_count; i++) {
 		if(strcmp(candidate, __gcompat_valid_locales[i]) == 0) return true;
 	}
 	return false;
