@@ -8,6 +8,20 @@
   © 2016-2020 Adélie Software and contributors.  NCSA open source license.
 
 
+1.1 (202?-??-??)
+================
+
+locale
+------
+
+* Redesign newlocale, courtesy of rcombs.
+
+string
+------
+
+* Add historical, non-POSIX strerror_r definition.
+
+
 1.0.0 (2020-09-27)
 ==================
 

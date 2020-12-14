@@ -1,9 +1,12 @@
 #define _GNU_SOURCE /* mempcpy */
 #include <assert.h> /* assert */
+#include <dlfcn.h>  /* dlsym, RTLD_NEXT */
 #include <stddef.h> /* NULL, size_t */
 #include <stdint.h> /* SIZE_MAX */
 #include <stdlib.h> /* rand_r */
+#define strerror_r no_strerror_r
 #include <string.h> /* memcpy, strcpy, strncat, strndup */
+#undef strerror_r
 #include <time.h>   /* time */
 #include <unistd.h> /* getpid */
 
@@ -208,6 +211,21 @@ size_t __strcspn_c2(const char *str, int bad, int bad2)
 char *__strdup(const char *string)
 {
 	return strdup(string);
+}
+
+/**
+ * Non-POSIX strerror_r.
+ */
+static int (*real_strerror_r)(int, char *, size_t);
+
+char *strerror_r(int errnum, char *buf, size_t buflen)
+{
+	if (real_strerror_r == NULL) {
+		real_strerror_r = dlsym(RTLD_NEXT, "strerror_r");
+		assert(real_strerror_r);
+	}
+	real_strerror_r(errnum, buf, buflen);
+	return buf;
 }
 
 /**
